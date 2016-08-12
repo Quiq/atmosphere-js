@@ -1986,6 +1986,8 @@
                             var status = 200;
                             if (ajaxRequest.readyState === 4) {
                                 status = ajaxRequest.status > 1000 ? 0 : ajaxRequest.status;
+                                // Set status of atmosphere response object to match status of Ajax response
+                                _response.status = status;
                             }
 
                             if (!rq.reconnectOnServerError && (status >= 300 && status < 600)) {
